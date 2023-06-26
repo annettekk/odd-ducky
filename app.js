@@ -36,21 +36,21 @@ function renderProducts() {
   
   console.log(clickedProduct)
   // how could we prevent goat1 being the same number a goat2?
-  while (product1 === product2 || product1 === product3 || product2 === product3) {
+  while (product1 === product2 || product1 === product3 || product2 === product3 || allProducts[product1].name === clickedProduct || allProducts[product2].name === clickedProduct || allProducts[product3].name === clickedProduct) {
     product1 = getRandomNumber();
     product2 = getRandomNumber();
     product3 = getRandomNumber();
   }
   
-  while (allProducts[product1].name === clickedProduct ) {
-    product1 = getRandomNumber()
-  }
-  while (allProducts[product2].name === clickedProduct) {
-    product2 = getRandomNumber()
-  }
-  while (allProducts[product3].name === clickedProduct) {
-    product3 = getRandomNumber()
-  }
+  //while (allProducts[product1].name === clickedProduct ) {
+    //product1 = getRandomNumber()
+  //}
+  //while (allProducts[product2].name === clickedProduct) {
+    //product2 = getRandomNumber()
+  //}
+  //while (allProducts[product3].name === clickedProduct) {
+    //product3 = getRandomNumber()
+  //}
 
   // now we have three random numbers lets set the attributes of our images in the document.
   image1.src = allProducts[product1].src;
