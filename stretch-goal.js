@@ -27,7 +27,7 @@ let section = document.querySelector("section");
 //const image3 = document.querySelector("section img:nth-child(3)");
 
 let clicks = 0;
-const maxClicksAllowed = 5;
+const maxClicksAllowed = 25;
 
 let allProducts = [];
 
@@ -52,7 +52,7 @@ function renderProducts() {
     
     let productIndex = getRandomNumber();
     productIndexes.push(productIndex);
-    }
+  }
   console.log(productIndexes)
   //let product1 = getRandomNumber();
   //let product2 = getRandomNumber();
@@ -60,19 +60,21 @@ function renderProducts() {
   
   
   // how could we prevent goat1 being the same number asgoat2?
+  
+  
   for (let i = 0; i < numberOfimages-1; i++) {
     for (let j = i+1; j < numberOfimages; j++) {
-      while ( productIndexes[i] === productIndexes[j]){
+      while ( productIndexes[i] === productIndexes[j] || allProducts[productIndexes[i]] === clickedProduct || allProducts[productIndexes[numberOfimages-1]] === clickedProduct){
         productIndexes[i] = getRandomNumber()
     //product2 = getRandomNumber();
     //product3 = getRandomNumber();
   }}}
   console.log('product indexes ' + productIndexes)
 
-  for (let i = 0; i < numberOfimages; i++) {
-    while (allProducts[productIndexes[i]] === clickedProduct){
-        productIndexes[i] = getRandomNumber()
-    }}
+  //for (let i = 0; i < numberOfimages; i++) {
+    //while (allProducts[productIndexes[i]] === clickedProduct){
+        //productIndexes[i] = getRandomNumber()
+    //}}
       //while (allProducts[i].name === clickedProduct ) {
         //productIndexes[i] = getRandomNumber()}
   
