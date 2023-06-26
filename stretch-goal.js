@@ -61,11 +61,12 @@ function renderProducts() {
   
   // how could we prevent goat1 being the same number asgoat2?
   
-  
+  console.log(clickedProduct)
   for (let i = 0; i < numberOfimages-1; i++) {
     for (let j = i+1; j < numberOfimages; j++) {
       while ( productIndexes[i] === productIndexes[j] || allProducts[productIndexes[i]] === clickedProduct || allProducts[productIndexes[numberOfimages-1]] === clickedProduct){
-        productIndexes[i] = getRandomNumber()
+        productIndexes[i] = getRandomNumber();
+        
     //product2 = getRandomNumber();
     //product3 = getRandomNumber();
   }}}
