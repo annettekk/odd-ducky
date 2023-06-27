@@ -33,6 +33,8 @@ let allProducts = [];
 
 let clickedProduct = null
 
+let arr = []
+
 function getRandomNumber() {
   return Math.floor(Math.random() * allProducts.length);
 }
@@ -46,13 +48,13 @@ function Product(name, src) {
 }
 
 function renderProducts() {
-  productIndexes = [];
-  
-  for (let i = 0; i < numberOfimages; i++) {
+  productIndexes = uniqueIndexes(numberOfimages);
+
+  //for (let i = 0; i < numberOfimages; i++) {
     
-    let productIndex = getRandomNumber();
-    productIndexes.push(productIndex);
-  }
+    //let productIndex = getRandomNumber();
+    //productIndexes.push(productIndex);
+  //}
   console.log(productIndexes)
   //let product1 = getRandomNumber();
   //let product2 = getRandomNumber();
@@ -62,14 +64,26 @@ function renderProducts() {
   // how could we prevent goat1 being the same number asgoat2?
   
   console.log(clickedProduct)
-  for (let i = 0; i < numberOfimages-1; i++) {
-    for (let j = i+1; j < numberOfimages; j++) {
-      while ( productIndexes[i] === productIndexes[j] || allProducts[productIndexes[i]] === clickedProduct || allProducts[productIndexes[numberOfimages-1]] === clickedProduct){
-        productIndexes[i] = getRandomNumber();
+
+  function uniqueIndexes(numberOfimages) {
+    let arr = []
+    while(arr.length < numberOfimages) {
+      var candidateIndex = getRandomNumber()
+      if(arr.indexOf(candidateIndex)===-1 && allProducts[candidateIndex].name !== clickedProduct)
+        arr.push(candidateIndex)
+      
+    }
+    return(arr)
+  }
+  console.log(arr)
+  //for (let i = 0; i < numberOfimages-1; i++) {
+    //for (let j = i+1; j < numberOfimages; j++) {
+      //while ( productIndexes[i] === productIndexes[j] || allProducts[productIndexes[i]] === clickedProduct || allProducts[productIndexes[numberOfimages-1]] === clickedProduct){
+        //productIndexes[i] = getRandomNumber();
         
     //product2 = getRandomNumber();
     //product3 = getRandomNumber();
-  }}}
+  //}}}
   console.log('product indexes ' + productIndexes)
 
   //for (let i = 0; i < numberOfimages; i++) {
