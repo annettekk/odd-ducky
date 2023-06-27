@@ -20,14 +20,16 @@
     margin: 3rem auto;
     display: grid;
     grid-template-columns: 250px 4fr;
-    grid-template-rows: 6.5rem 10rem 20rem 40%;
+    grid-template-rows: 6.5rem 10rem 10rem 40%;
   }
 
   footer {
     width: 1024px;
+    
     margin: 3rem auto;
-    display: flex;
-    justify-content: center;
+    /*display: flex;*/
+
+    /*justify-content: space-between;*/
     font-size: 1.4rem;
   }
   
@@ -63,7 +65,7 @@
     padding: 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
   }
   
   section img {
@@ -94,8 +96,8 @@
     background-color: darkgrey;
     color: lightgrey;
     padding: 0.5rem 1rem;
-    width: max-content;
-    height: max-content;
+    width: 100%;
+    height: 100%;
     font-size: 2.8rem;
     margin: 1rem;
     pointer-events: none;
@@ -119,4 +121,10 @@
   
   li {
     line-height: 1.6;
+  }
+
+  #btn {
+    display: flex;
+    justify-content: center;
+    background-color: rosybrown;
   }

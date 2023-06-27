@@ -10,7 +10,7 @@ const image2 = document.querySelector("section img:nth-child(2)");
 const image3 = document.querySelector("section img:nth-child(3)");
 
 let clicks = 0;
-const maxClicksAllowed = 25;
+const maxClicksAllowed = 10;
 
 let allProducts = [];
 
@@ -80,7 +80,7 @@ function handleProductClick(event) {
     if (clicks === maxClicksAllowed) {
       productContainer.removeEventListener("click", handleProductClick);
       productContainer.className = "no-voting";
-      resultsButton.addEventListener("click", renderResults);
+      resultsButton.addEventListener("click", renderChart);
       resultsButton.className = "clicks-allowed";
     
     } else {
@@ -112,3 +112,47 @@ const umbrella = new Product("Umbrella", "images/umbrella.jpg");
 renderProducts();
 
 productContainer.addEventListener("click", handleProductClick);
+
+function renderChart() {
+  const productNames = [];
+  const productViews = [];
+  const productClicks = [];
+
+  for (let i = 0; i < allProducts.length; i++) {
+    productNames.push(allProducts[i].name);
+    productViews.push(allProducts[i].views);
+    productClicks.push(allProducts[i].clicks);
+  }
+
+  // console.log(productNames);
+  // console.log(productViews);
+  // console.log(productClicks);
+
+  const data = {
+    labels: productNames,
+    datasets: [
+      {
+        label: "clicks",
+        data: productClicks,
+        backgroundColor: ["#42032C"],
+        borderColor: ["#D36B00"],
+        borderWidth: 1,
+      },
+      {
+        label: "views",
+        data: productViews,
+        backgroundColor: ["#D36B00"],
+        borderColor: ["#42032C"],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const config = {
+    type: "bar",
+    data: data,
+  };
+
+  const productChart = document.getElementById("chart");
+  const myChart = new Chart(productChart, config);
+}
