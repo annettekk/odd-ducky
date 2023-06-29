@@ -99,17 +99,17 @@ function renderResults() {
   }
 }
 
-const mug = new Product("Cat Mug", "images/cat-mug.jpg");
-const crisp = new Product("Crisp Holder", "images/crisp-holder.jpg");
-const gloves = new Product("Gloves", "images/gloves.jpg");
-const knife = new Product("Knife Holder", "images/knife-holder.jpg");
-const mop = new Product("Mop", "images/mop.jpg");
-const pillow = new Product("Pillow", "images/pillow.jpg");
-const slippers = new Product("Slippers", "images/slippers.jpg");
-const tea = new Product("Tea Infuser", "images/tea-infuser.jpg");
-const umbrella = new Product("Umbrella", "images/umbrella.jpg");
+//const mug = new Product("Cat Mug", "images/cat-mug.jpg");
+//const crisp = new Product("Crisp Holder", "images/crisp-holder.jpg");
+//const gloves = new Product("Gloves", "images/gloves.jpg");
+//const knife = new Product("Knife Holder", "images/knife-holder.jpg");
+//const mop = new Product("Mop", "images/mop.jpg");
+//const pillow = new Product("Pillow", "images/pillow.jpg");
+//const slippers = new Product("Slippers", "images/slippers.jpg");
+//const tea = new Product("Tea Infuser", "images/tea-infuser.jpg");
+//const umbrella = new Product("Umbrella", "images/umbrella.jpg");
 
-renderProducts();
+//renderProducts();
 
 productContainer.addEventListener("click", handleProductClick);
 
@@ -155,4 +155,36 @@ function renderChart() {
 
   const productChart = document.getElementById("chart");
   const myChart = new Chart(productChart, config);
+
+  setLocalStorage();
 }
+
+function setLocalStorage() {
+  localStorage.setItem("products", JSON.stringify(allProducts));
+}
+
+function checkLocalStorage() {
+  const localProducts = JSON.parse(localStorage.getItem("products"));
+   console.log(localProducts);
+  if (localProducts) {
+    allProducts = localProducts;
+  } else {
+    console.log("new goats please");
+    const mug = new Product("Cat Mug", "images/cat-mug.jpg");
+    const crisp = new Product("Crisp Holder", "images/crisp-holder.jpg");
+    const gloves = new Product("Gloves", "images/gloves.jpg");
+    const knife = new Product("Knife Holder", "images/knife-holder.jpg");
+    const mop = new Product("Mop", "images/mop.jpg");
+    const pillow = new Product("Pillow", "images/pillow.jpg");
+    const slippers = new Product("Slippers", "images/slippers.jpg");
+    const tea = new Product("Tea Infuser", "images/tea-infuser.jpg");
+    const umbrella = new Product("Umbrella", "images/umbrella.jpg");
+  }
+}
+
+checkLocalStorage();
+renderProducts();
+// create the setLocalStorage function and invoke at the bottom of renderChart()
+// create the checklocalStorage()
+// comment out the new instances and place in the else part of if statement
+// invoke the checkLocalStorage()
